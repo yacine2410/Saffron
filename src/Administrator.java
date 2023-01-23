@@ -6,7 +6,7 @@ import java.util.Map;
 public class Administrator extends Person {
     private String task;
     private List<String> courses;
-    private Map<String, Double> grades;
+    private Map<String, Integer> grades;
     private Map<String, List<Scholarship>> scholarships;
     private Map<String, List<Internship>> internships;
     private Map<String, List<Master>> masters;
@@ -23,6 +23,15 @@ public class Administrator extends Person {
         this.professors = new HashMap<>();
     }
 
+    public boolean isLoggedIn() {
+        return super.isLoggedIn();
+    }
+
+    public void logout() {
+        super.logout();
+    }
+    
+
     public void setTask(String task) {
         this.task = task;
     }
@@ -32,7 +41,7 @@ public class Administrator extends Person {
     }
 
     public void addCourse(String course) {
-        if(isLoggedIn) {
+        if(isLoggedIn()) {
             this.courses.add(course);
         } else {
             System.out.println("You must be logged in to perform this action.");
@@ -40,15 +49,15 @@ public class Administrator extends Person {
     }
 
     public void removeCourse(String course) {
-        if(isLoggedIn) {
+        if(isLoggedIn()) {
             this.courses.remove(course);
         } else {
             System.out.println("You must be logged in to perform this action.");
         }
     }
     
-    public void addGrade(String courseID, double grade) {
-        if(isLoggedIn) {
+    public void addGrade(String courseID, int grade) {
+        if(isLoggedIn()) {
             this.grades.put(courseID, grade);
         } else {
             System.out.println("You must be logged in to perform this action.");
@@ -56,7 +65,7 @@ public class Administrator extends Person {
     }
     
     public void addScholarship(String scholarshipID, Scholarship scholarship) {
-        if(isLoggedIn) {
+        if(isLoggedIn()) {
             if (!this.scholarships.containsKey(scholarshipID)) {
                 this.scholarships.put(scholarshipID, new ArrayList<>());
             }
@@ -67,7 +76,7 @@ public class Administrator extends Person {
     }
     
     public void addInternship(String internshipID, Internship internship) {
-        if(isLoggedIn) {
+        if(isLoggedIn()) {
             if (!this.internships.containsKey(internshipID)) {
                 this.internships.put(internshipID, new ArrayList<>());
             }
@@ -78,7 +87,7 @@ public class Administrator extends Person {
     }
     
     public void addMaster(String masterID, Master master) {
-        if(isLoggedIn) {
+        if(isLoggedIn()) {
             if (!this.masters.containsKey(masterID)) {
                 this.masters.put(masterID, new ArrayList<>());
             }
@@ -89,7 +98,7 @@ public class Administrator extends Person {
     }
     
     public void addProfessor(String courseID, String email) {
-        if(isLoggedIn) {
+        if(isLoggedIn()) {
             this.professors.put(courseID, email);
         } else {
             System.out.println("You must be logged in to perform this action.");

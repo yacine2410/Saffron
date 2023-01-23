@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Master implements Opportunity {
     private int opportunityNumber;
     private String deadline;
@@ -6,6 +9,7 @@ public class Master implements Opportunity {
     private String university;
     private String title;
     private float requiredGPA;
+    private List<Master> masters = new ArrayList<>();
 
     public Master(int opportunityNumber, String deadline, String location, String duration, String university, String title, float requiredGPA) {
         this.opportunityNumber = opportunityNumber;
@@ -79,6 +83,18 @@ public class Master implements Opportunity {
     @Override
     public void setDuration(String duration) {
         this.duration = duration;
+    }
+
+    public void addMaster(Master master) {
+        masters.add(master);
+    }
+
+    public void removeMaster(Master master) {
+        masters.remove(master);
+    }
+
+    public List<Master> getAllMasters() {
+        return masters;
     }
 
 }

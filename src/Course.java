@@ -1,4 +1,8 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Course {
+    private List<String> courses = new ArrayList<>();
     private String courseCode;
     private int chapterNumber;
     private String subjectTitle;
@@ -52,5 +56,9 @@ public class Course {
 
     public int getTeacherId() {
         return teacherId;
+    }
+
+    public List<String> getAllCourses() {
+        return courses;
     }
 }

@@ -6,7 +6,7 @@ import java.util.Map;
 public class Student extends Person {
     private String major;
     private int graduationYear;
-    private Map<String, Double> grades;
+    private Map<String, Integer> grades;
     private List<String> courses;
     private Map<String, List<Scholarship>> scholarships;
     private Map<String, List<Internship>> internships;
@@ -25,6 +25,14 @@ public class Student extends Person {
         this.professors = new HashMap<>();
     }
 
+    public boolean isLoggedIn() {
+        return super.isLoggedIn();
+    }
+
+    public void logout() {
+        super.logout();
+    }
+    
     public void setMajor(String major) {
         this.major = major;
     }
@@ -42,7 +50,7 @@ public class Student extends Person {
     }
 
     public void checkOpportunities() {
-        if(isLoggedIn) {
+        if(isLoggedIn()) {
             System.out.println("Available Scholarships:");
             for (Map.Entry<String, List<Scholarship>> entry : scholarships.entrySet()) {
                 System.out.println(entry.getKey() + ": " + entry.getValue());
@@ -61,7 +69,7 @@ public class Student extends Person {
     }
     
     public void viewCourses() {
-        if(isLoggedIn) {
+        if(isLoggedIn()) {
             System.out.println("Courses:");
             for (String course : courses) {
                 System.out.println(course);
@@ -72,9 +80,9 @@ public class Student extends Person {
     }
     
     public void viewGrades() {
-        if(isLoggedIn) {
+        if(isLoggedIn()) {
             System.out.println("Grades:");
-            for (Map.Entry<String, Double> entry : grades.entrySet()) {
+            for (Map.Entry<String, Integer> entry : grades.entrySet()) {
                 System.out.println(entry.getKey() + ": " + entry.getValue());
             }
         } else {
@@ -83,7 +91,7 @@ public class Student extends Person {
     }
     
     public void checkProfessorContact(String courseID) {
-        if(isLoggedIn) {
+        if(isLoggedIn()) {
             if(professors.containsKey(courseID)) {
                 System.out.println("Professor's email for " + courseID + ": " + professors.get(courseID));
                 } else {

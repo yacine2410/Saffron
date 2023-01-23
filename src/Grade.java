@@ -1,7 +1,11 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public class Grade {
     private int studentID;
     private int courseID;
     private int grade;
+    private Map<Integer, Map<Integer, Integer>> grades = new HashMap<>();
     
     public Grade(int studentID, int courseID, int grade) {
         this.studentID = studentID;
@@ -31,5 +35,16 @@ public class Grade {
     
     public void setGrade(int grade) {
         this.grade = grade;
+    }
+
+    public void addGrade(int studentId, int courseId, int grade) {
+        if (!grades.containsKey(studentId)) {
+            grades.put(studentId, new HashMap<>());
+        }
+        grades.get(studentId).put(courseId, grade);
+    }
+
+    public Map<Integer, Integer> getGrades(int studentId) {
+        return grades.getOrDefault(studentId, new HashMap<>());
     }
 }

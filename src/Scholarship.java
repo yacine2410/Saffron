@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Scholarship implements Opportunity {
     private int opportunityNumber;
     private String deadline;
@@ -5,6 +8,8 @@ public class Scholarship implements Opportunity {
     private String duration;
     private String requirement;
     private boolean fullyFunded;
+    private List<Scholarship> scholarships = new ArrayList<>();
+
 
     public Scholarship(int opportunityNumber, String deadline, String location, String duration, String requirement, boolean fullyFunded) {
         this.opportunityNumber = opportunityNumber;
@@ -69,5 +74,17 @@ public class Scholarship implements Opportunity {
 
     public void setFullyFunded(boolean fullyFunded) {
         this.fullyFunded = fullyFunded;
+    }
+
+    public void addScholarship(Scholarship scholarship) {
+        scholarships.add(scholarship);
+    }
+
+    public void removeScholarship(Scholarship scholarship) {
+        scholarships.remove(scholarship);
+    }
+
+    public List<Scholarship> getAllScholarships() {
+        return scholarships;
     }
 }

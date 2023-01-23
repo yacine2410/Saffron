@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Internship implements Opportunity {
     private int opportunityNumber;
     private String deadline;
@@ -6,6 +9,8 @@ public class Internship implements Opportunity {
     private String organization;
     private String description;
     private boolean paid;
+    private List<Internship> internships = new ArrayList<>();
+
 
     public Internship(int opportunityNumber, String deadline, String location, String duration, String organization, String description, boolean paid) {
         this.opportunityNumber = opportunityNumber;
@@ -79,6 +84,18 @@ public class Internship implements Opportunity {
     @Override
     public void setDuration(String duration) {
         this.duration = duration;
+    }
+
+    public void addInternship(Internship internship) {
+        internships.add(internship);
+    }
+
+    public void removeInternship(Internship internship) {
+        internships.remove(internship);
+    }
+
+    public List<Internship> getAllInternships() {
+        return internships;
     }
 
 }

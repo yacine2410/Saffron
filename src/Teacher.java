@@ -8,6 +8,7 @@ public class Teacher extends Person {
     private int yearsExperience;
     private ArrayList<String> courses;
     private Map<String, List<Grade>> grades;
+    private List<Teacher> professors = new ArrayList<>();
 
     public Teacher(String email, int phoneNumber, String firstName, String lastName, String password, int ID, String department, int yearsExperience, ArrayList<String> courses) {
         super(email, phoneNumber, firstName, lastName, password, ID);
@@ -17,6 +18,14 @@ public class Teacher extends Person {
         this.grades = new HashMap<>();
     }
 
+    public void logout() {
+        super.logout();
+    }
+
+    public boolean isLoggedIn() {
+        return super.isLoggedIn();
+    }
+    
     public void setDepartment(String department) {
         this.department = department;
     }
@@ -42,7 +51,7 @@ public class Teacher extends Person {
     }
 
     public void updateContactInfo(String firstName, String lastName, String email) {
-        if(isLoggedIn){
+        if(isLoggedIn()){
             this.firstName = firstName;
             this.lastName = lastName;
             this.email = email;
@@ -53,7 +62,7 @@ public class Teacher extends Person {
     }
 
     public void addCourse(String course) {
-       if(isLoggedIn){
+       if(isLoggedIn()){
            courses.add(course);
        }
        else{
@@ -62,7 +71,7 @@ public class Teacher extends Person {
     }
 
     public void removeCourse(String course) {
-        if(isLoggedIn){
+        if(isLoggedIn()){
             courses.remove(course);
         }
         else{
@@ -71,7 +80,7 @@ public class Teacher extends Person {
     }
 
     public void uploadGrade(String studentID, Grade grade) {
-        if(isLoggedIn){
+        if(isLoggedIn()){
             if (!grades.containsKey(studentID)) {
                 grades.put(studentID, new ArrayList<>());
             }
@@ -84,7 +93,7 @@ public class Teacher extends Person {
     }
 
     public List<String> viewStudents() {
-        if(isLoggedIn){
+        if(isLoggedIn()){
             return new ArrayList<>(grades.keySet());
         }
         else{
@@ -95,7 +104,7 @@ public class Teacher extends Person {
     }
 
     public Map<String, List<Grade>> getGrades() {
-        if(isLoggedIn){
+        if(isLoggedIn()){
             return grades;
         }
         else{
@@ -103,5 +112,17 @@ public class Teacher extends Person {
             return null;
         }
         
+    }
+
+    public void addProfessor(Teacher teacher) {
+        professors.add(teacher);
+    }
+
+    public void removeProfessor(Teacher teacher) {
+        professors.remove(teacher);
+    }
+
+    public List<Teacher> getAllProfessors() {
+        return professors;
     }
 }

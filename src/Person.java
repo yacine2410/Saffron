@@ -1,5 +1,4 @@
 import java.util.Arrays;
-import java.util.Scanner; // for inputting user data
 import java.nio.charset.StandardCharsets;
 //packages to salt and hash user passwords
 import java.security.MessageDigest;
@@ -84,13 +83,7 @@ public class Person
         }
     }   
 
-    public void login() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter email:");
-        String email = sc.nextLine();
-        System.out.println("Enter password:");
-        String password = sc.nextLine();
-
+    public void login(String email, String password) {
         // hash the entered password using the stored salt
                 byte[] enteredHashedPassword;
         try {
@@ -118,6 +111,21 @@ public class Person
     public String getPassword() {
         return password;
     }
+
+    public boolean isLoggedIn() {
+        return this.isLoggedIn;
+    }
+
+    public void register(String email, int phoneNumber, String firstName, String lastName, String password) {
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.password = password;
+        this.isLoggedIn = true;
+    }
+    
+    
 
 }
 
