@@ -3,8 +3,8 @@ public class Teacher extends Person {
     private String department;
     private int yearsExperience;
 
-    public Teacher(String email, int phoneNumber, String firstName, String lastName, String password, String department, int yearsExperience) {
-        super(email, phoneNumber, firstName, lastName, password);
+    public Teacher(String email, int phoneNumber, String firstName, String lastName, String password, int ID, String department, int yearsExperience) {
+        super(email, phoneNumber, firstName, lastName, password, ID);
     this.department = department;
     this.yearsExperience = yearsExperience;
     }

@@ -4,8 +4,8 @@ public class Student extends Person {
     private String major;
     private String minor;
 
-    public Student(String email, int phoneNumber, String firstName, String lastName, String password, String major, String minor) {
-        super(email, phoneNumber, firstName, lastName, password);
+    public Student(String email, int phoneNumber, String firstName, String lastName, String password, int ID, String major, String minor) {
+        super(email, phoneNumber, firstName, lastName, password, ID);
         this.major = major;
         this.minor = minor;
     }

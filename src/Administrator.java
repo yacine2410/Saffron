@@ -2,8 +2,8 @@
 public class Administrator extends Person {
     private String task;
 
-    public Administrator(String email, int phoneNumber, String firstName, String lastName, String password, String task) {
-        super(email, phoneNumber, firstName, lastName, password);
+    public Administrator(String email, int phoneNumber, String firstName, String lastName, String password, int ID, String task) {
+        super(email, phoneNumber, firstName, lastName, password, ID);
         this.task = task;
     }
 
