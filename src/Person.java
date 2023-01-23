@@ -1,5 +1,6 @@
+import java.util.Arrays;
 import java.util.Scanner; // for inputting user data
-
+import java.nio.charset.StandardCharsets;
 //packages to salt and hash user passwords
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -26,7 +27,7 @@ public class Person
         this.ID = ID;
     }
 
-    public void setID(String ID){
+    public void setID(int ID){
         this.ID = ID;
     }
 
@@ -100,7 +101,7 @@ public class Person
         }
 
         // compare the entered hashed password to the stored hashed password
-        if (Arrays.equals(hashedPassword, enteredHashedPassword) && email.equals(this.email)) {
+        if (!Arrays.equals(hashedPassword, enteredHashedPassword) || !email.equals(this.email)) {
             System.out.println("Logged in successfully!");
         } else {
             System.out.println("Invalid email or password.");

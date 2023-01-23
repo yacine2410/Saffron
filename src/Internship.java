@@ -1,47 +1,47 @@
-public class Master implements Opportunity {
+public class Internship implements Opportunity {
     private int opportunityNumber;
     private String deadline;
     private String location;
     private String duration;
-    private String university;
-    private String title;
-    private float requiredGPA;
+    private String organization;
+    private String description;
+    private boolean paid;
 
-    public Master(int opportunityNumber, String deadline, String location, String duration, String university, String title, float requiredGPA) {
+    public Internship(int opportunityNumber, String deadline, String location, String duration, String organization, String description, boolean paid) {
         this.opportunityNumber = opportunityNumber;
         this.deadline = deadline;
         this.location = location;
         this.duration = duration;
-        this.university = university;
-        this.title = title;
-        this.requiredGPA = requiredGPA;
+        this.organization = organization;
+        this.description = description;
+        this.paid = paid;
     }
 
-    public String getUniversity() {
-        return university;
+    public String getOrganization() {
+        return organization;
     }
 
-    public void setUniversity(String university) {
-        this.university = university;
+    public void setOrganization(String organization) {
+        this.organization = organization;
     }
 
-    public String getTitle() {
-        return title;
+    public String getDescription() {
+        return description;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public float getRequiredGPA() {
-        return requiredGPA;
+    public boolean isPaid() {
+        return paid;
     }
 
-    public void setRequiredGPA(float requiredGPA) {
-        this.requiredGPA = requiredGPA;
+    public void setPaid(boolean paid) {
+        this.paid = paid;
     }
 
-      @Override
+    @Override
     public int getOpportunityNumber() {
         return opportunityNumber;
     }
