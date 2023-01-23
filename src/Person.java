@@ -9,14 +9,15 @@ import java.security.SecureRandom;
 // Person class
 public class Person 
 {
-    private String email;
+    protected String email;
     private int phoneNumber;
     private int ID;
-    private String firstName;
-    private String lastName;
+    protected String firstName;
+    protected String lastName;
     private String password;
     private byte[] salt;
     private byte[] hashedPassword;
+    protected boolean isLoggedIn;
 
     public Person(String email, int phoneNumber, String firstName, String lastName, String password, int ID) {
         this.email = email;
@@ -103,9 +104,15 @@ public class Person
         // compare the entered hashed password to the stored hashed password
         if (!Arrays.equals(hashedPassword, enteredHashedPassword) || !email.equals(this.email)) {
             System.out.println("Logged in successfully!");
+            this.isLoggedIn = true;
         } else {
             System.out.println("Invalid email or password.");
+            this.isLoggedIn = false;
         }
+    }
+
+    public void logout(){
+        this.isLoggedIn = false; 
     }
 
     public String getPassword() {
